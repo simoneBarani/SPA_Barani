@@ -23,8 +23,5 @@ const hide = (elements) => {
     }
     
     window.addEventListener('popstate', render);
-    window.addEventListener('hashchange', render);
     render();   
  } 
-
- createNavigator(document.getElementById("container"));
