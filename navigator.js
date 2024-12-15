@@ -21,6 +21,10 @@ const hide = (elements) => {
        hide(pages);
        show(selected);
     }
-    window.addEventListener('popstate', render); 
+    
+    window.addEventListener('popstate', render);
+    window.addEventListener('hashchange', render);
     render();   
  } 
+
+ createNavigator(document.getElementById("container"));
