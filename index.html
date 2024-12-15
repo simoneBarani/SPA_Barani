@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="./style.css" />
+   <title>SPA Esempio</title>
+</head>
+
+<body>
+
+   <div id="container" class="container">
+
+      <div id="home" class="page visible">
+         <div class="row">
+            <h2>Benvenuto alla Home</h2>
+            <ul>
+               <li><a href="#pagina1">Evento, azione, reazione</a></li>
+               <li><a href="#pagina2">Canvas</a></li>
+               <li><a href="#pagina3">Cache remota</a></li>
+            </ul>
+         </div>
+      </div>
+
+      <div id="pagina1" class="page">
+         <div class="row">
+            <p><article id="eckb-article-content" data-article-id="333" >                        <div id="eckb-article-content-header-v2"><div id="eckb-article-content-header-row-1"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-back-navigation-container"><div class="eckb-navigation-back  "  style="margin-top: 4px; margin-right: 15px; margin-bottom: 4px; margin-left: 4px;" ><div tabindex="0" class="eckb-navigation-button"  style="padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; color: #037ba3; background-color: #ffffff; font-size:14px;border-radius: 3px; border-style: solid; border-width: 1px; border-color: #b5b5b5;"  onclick="history.go(-1);" >&lt; Home</div></div></div><div id="eckb-article-content-breadcrumb-container">
+               <div class="eckb-breadcrumb"  style="padding-top: 0px; padding-right: 4px; padding-bottom: 0px; padding-left: 4px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size:14px;" >		<nav class="eckb-breadcrumb-outline" aria-label="Breadcrumb">
+                     <ul class="eckb-breadcrumb-nav">       <li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/documentazione/"><span  style="color: #037ba3;"  >Main</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/"><span  style="color: #037ba3;"  >Programmazione</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/javascript/"><span  style="color: #037ba3;"  >Javascript</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><span aria-current="page" style="color: #037ba3;"  >Evento, azione, reazione</span>	</span></li>		</ul>
+                  </nav>
+               
+               </div>          </div></div><div class="eckb-article-content-header-row-right-group"><div id="eckb-article-content-toolbar-container">
+                     <div class="eckb-article-content-toolbar-button-container">
+                        <span class="eckb-print-button-container">			<span class="eckb-toolbar-button-text">Stampa</span><span class="eckb-toolbar-button-icon epkbfa epkbfa-print"></span>			</span>
+                     </div> </div></div></div><div id="eckb-article-content-header-row-2"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-content-title-container"><h1 class="eckb-article-title">Evento, azione, reazione</h1></div></div></div></div><div id="eckb-article-content-body"><h2 class="wp-block-heading"><strong>Best practices e worst practices</strong></h2>
+               
+               
+               
+               <p>Javascript &egrave; in circolazione da un trentennio, e con le sue evoluzioni e il suo principale ambito di applicazione, ovvero la programmazione web, &egrave; probabilmente il linguaggio di programmazione pi&ugrave; utilizzato al mondo. In particolare &egrave; un linguaggio che per buona parte della sua vita &egrave; stato utilizzato da persone con poche e nulle competenze di programmazione e da smanettoni senza competenze. Il risultato &egrave; che buona parte dei siti Internet ha codice Javascript di pessima qualit&agrave;, e soprattutto che si sono diffuse pratiche di sviluppo poco sostenibili, poi riprese dalle varie IA che ne riproducono, per pura forza statistica, i pi&ugrave; comuni errori.</p>
+               
+               
+               
+               <p>Nel frattempo per&ograve; nell&rsquo;ultimo decennio, con la maturazione di Javascript, si sono evolute per&ograve; anche delle buone pratiche che vogliamo riprendere in questa lezione.</p>
+               
+               
+               
+               <p>I principi che guidano una buona applicazione sono i seguenti:</p>
+               
+               
+               
+               <ul class="wp-block-list">
+               <li>vi &egrave; una <strong>netta separazione</strong> tra HTML, Javascript e CSS:
+               <ul class="wp-block-list">
+               <li>nell&rsquo;HTML, sebbene sia tecnicamente possibile, non c&rsquo;&egrave; codice JS;</li>
+               
+               
+               
+               <li>nel JS non vi &egrave; manipolazione diretta del DOM, ma solo generazione di testo HTML;</li>
+               
+               
+               
+               <li>non si applicano stili in linea in HTML ma si creano classi CSS.</li>
+               </ul>
+               </li>
+               
+               
+               
+               <li>l&rsquo;applicazione ruota intorno al concetto di evento, azione e reazione:
+               <ul class="wp-block-list">
+               <li><strong>l&rsquo;evento</strong>&nbsp;&egrave; l&rsquo;azione dell&rsquo;utente, ad esempio il click su un pulsante;</li>
+               
+               
+               
+               <li><strong>l&rsquo;azione</strong>: il codice Javascript legge l&rsquo;azione dell&rsquo;utente e svolge una qualche azione sui dati;</li>
+               
+               
+               
+               <li>la&nbsp;<strong>reazione</strong>: dopo l&rsquo;azione, viene aggiornata, se necessario, la pagina HTML e quindi l&rsquo;interfaccia utente.</li>
+               </ul>
+               </li>
+               </ul>
+               
+               
+               
+               <p>Con queste best practices &egrave; possibile scrivere applicazioni ben leggibili, con componenti riusabili altrove, dove &egrave; facile effettuare debugging e correggere gli errori, e dove &egrave; semplice aggiungere funzionalit&agrave;. Queste buone pratiche, insieme alla programmazione per componenti, costituiscono il principio di funzionamento dei principali framework Javascript (come Angular, React, Vue).</p>
+               
+               
+               
+               <h2 class="wp-block-heading"><strong>Generazione di HTML da Javascript</strong></h2>
+               
+               
+               
+               <p>Un sistema veloce, semplice e soprattutto efficiente per creare html consiste nel creare una stringa di testo e &ldquo;iniettarla&rdquo; nella pagina, usando la propriet&agrave;&nbsp;<strong>element.innerHTML</strong>. In pratica&nbsp;<strong>il codice HTML viene inserito come se fosse testo</strong>, ed automaticamente il browser esegue il &ldquo;<strong>rendering</strong>&rdquo; in html e quindi modifica la pagina web.</p>
+               
+               
+               
+               <p>Ad esempio se abbiamo questo elemento:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-html" data-lang="HTML"><code>&lt;div&nbsp;id=&quot;container&quot;&gt;
+               
+               &lt;/div&gt;</code></pre></div>
+               
+               
+               
+               <p>Ed eseguiamo questo codice<a href="applewebdata://2CAD2660-DA3D-4584-A0ED-AAF8FEF2EEAA#_ftn2"><sup>[2]</sup></a>:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const&nbsp;container&nbsp;=&nbsp;document.getElementById(&quot;container&quot;);
+               container.innerHTML&nbsp;=&nbsp;`
+               &nbsp;&lt;div&gt;Ciao&lt;/div&gt;
+               `;</code></pre></div>
+               
+               
+               
+               <p>Otterremo questo html:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-html" data-lang="HTML"><code>&lt;div&nbsp;id=&quot;container&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ciao
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+               &nbsp;&nbsp;&lt;/div&gt;</code></pre></div>
+               
+               
+               
+               <p>L&rsquo;html una volta generato&nbsp;<strong>si comporta esattamente come l&rsquo;html scritto in fase di coding</strong>. Quindi &egrave; a sua volta possibile eseguire il binding in oggetti DOM e manipolarlo.&nbsp;</p>
+               
+               
+               
+               <p>Quando dobbiamo scrivere html in modo ripetitivo, ovvero ad esempio righe di una tabella dove la struttura del codice &egrave; sempre la stessa, ma cambiano solo i dati, conviene usare delle stringhe con dei segnaposto da modificare, ovvero dei&nbsp;<strong>template</strong>.</p>
+               
+               
+               
+               <h2 class="wp-block-heading">Un esempio di applicazione</h2>
+               
+               
+               
+               <p>Facciamo un esempio concreto. Vogliamo creare una web app che contiene una form con 3 campi (nome, cognome, et&agrave;), un pulsante di conferma e una tabella (inizialmente vuota) con 3 colonne (nome, cognome, ed et&agrave;). La nostra web app, ogni volta che l&rsquo;utente inserisce i valori nella form e preme su continua, aggiorner&agrave; la lista dei record inseriti ed aggiorner&agrave; la tabella con tutti i dati.</p>
+               
+               
+               
+               <p>Vediamo il codice.</p>
+               
+               
+               
+               <p>Qui l&rsquo;html:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-html" data-lang="HTML"><code>&lt;div class=&quot;container&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;row&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;col-3&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;inputValue1&quot; class=&quot;form-label&quot;&gt;Nome&lt;/label&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;inputValue1&quot; type=&quot;text&quot; class=&quot;form-control&quot; /&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;inputValue2&quot; class=&quot;form-label&quot;&gt;Cognome&lt;/label&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;inputValue2&quot; type=&quot;text&quot; class=&quot;form-control&quot; /&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;inputValue3&quot; class=&quot;form-label&quot;&gt;Et&agrave;&lt;/label&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id=&quot;inputValue3&quot; type=&quot;text&quot; class=&quot;form-control&quot; /&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;row mt-2&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;col-3&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type=&quot;button&quot; id=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invio
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table id=&quot;table&quot; class=&quot;table mt-4&quot;&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</code></pre></div>
+               
+               
+               
+               <p>Come si vede dall&rsquo;esempio la tabella &egrave; inizialmente vuota.&nbsp;</p>
+               
+               
+               
+               <p>Passiamo al Javascript. Prima di tutto eseguiamo il binding degli oggetti del DOM:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const button = document.getElementById(&quot;button&quot;);
+               const table = document.getElementById(&quot;table&quot;);
+               const inputValue1 = document.getElementById(&quot;inputValue1&quot;);
+               const inputValue2 = document.getElementById(&quot;inputValue2&quot;);
+               const inputValue3 = document.getElementById(&quot;inputValue3&quot;);</code></pre></div>
+               
+               
+               
+               <p>Fatta l&rsquo;inizializzazione veniamo alle funzionalit&agrave;.</p>
+               
+               
+               
+               <p>Alla pressione del pulsante (cio&egrave; <strong>l&rsquo;evento</strong>), quello che ci aspettiamo che faccia l&rsquo;applicazione &egrave;:</p>
+               
+               
+               
+               <p>1)&nbsp;aggiungere&nbsp;i nuovi valori inseriti in una variabile lista (che chiamiamo &ldquo;data&rdquo;), ovvero <strong>l&rsquo;azione</strong>;</p>
+               
+               
+               
+               <p>2)&nbsp;aggiornare&nbsp;la tabella sulla base dei dati inseriti, ovvero la <strong>reazione</strong>.</p>
+               
+               
+               
+               <p>Qui il codice dell&rsquo;azione che aggiunge il nuovo elemento alla pressione del pulsante (evento ed azione sono quindi collegati):</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const data = [];
+               button.onclick&nbsp;= () =&gt; {
+               &nbsp;&nbsp;const nome = inputValue1.value;
+               &nbsp;&nbsp;const cognome = inputValue2.value;
+               &nbsp;&nbsp;const et&agrave; = inputValue3.value;
+               &nbsp;&nbsp;data.push({
+               &nbsp;&nbsp;&nbsp;&nbsp;nome: nome,
+               &nbsp;&nbsp;&nbsp;&nbsp;cognome: cognome,
+               &nbsp;&nbsp;&nbsp;&nbsp;et&agrave;: et&agrave;
+               &nbsp;&nbsp;});
+               &nbsp;&nbsp;render();
+               };</code></pre></div>
+               
+               
+               
+               <p>A un certo punto viene richiamata una funzione&nbsp;<strong>render</strong>&nbsp;non ancora definita. Questa funzione esegue la reazione: ovvero aggiorna la pagina web creando una tabella html a partire dalla variabile data.</p>
+               
+               
+               
+               <p>Per fare questo abbiamo per&ograve; bisogno di creare un&nbsp;<strong>template</strong>: uno per l&rsquo;header e uno per la singola riga, dove mettiamo dei segnaposto al posto dei dati, che useremo per tutte le righe inserite.</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const tableHeader = `
+               &nbsp;&nbsp;&lt;tr&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nome&lt;/th&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Cognome&lt;/th&gt;
+               &nbsp;&nbsp;&nbsp;&lt;th&gt;Et&agrave;&lt;/th&gt;
+               &nbsp;&nbsp;&lt;/tr&gt;
+               `;
+               
+               const template = `
+               &nbsp;&nbsp;&lt;tr&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;%NOME&lt;/td&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;%COGNOME&lt;/td&gt;
+               &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;%ETA&lt;/td&gt;
+               &nbsp;&lt;/tr&gt;
+               `;</code></pre></div>
+               
+               
+               
+               <p>A questo punto possiamo scrivere la funzione render, che riscrive tutta la tabella e sostituisce l&rsquo;html ogni volta che viene eseguita. </p>
+               
+               
+               
+               <p>Tutto il lavoro consiste in manipolazione di stringhe:</p>
+               
+               
+               
+               <p>&ndash; prima si inserisce il table header sopra definito;<br>&ndash; poi per ogni riga, si trasforma il template in una stringa contenente effettivo codice html coi dati;<br>&ndash; infine si inserisce la stringa creata al posto dell&rsquo;html esistente.</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const&nbsp;render&nbsp;= () =&gt; {
+               &nbsp;&nbsp;let html = tableHeader;
+               &nbsp;&nbsp;data.forEach((element) =&gt; {
+               &nbsp;&nbsp;&nbsp;&nbsp;let rowHtml =&nbsp;template.replace(&quot;%NOME&quot;, element.nome);
+               &nbsp;&nbsp;&nbsp;&nbsp;rowHtml =&nbsp;rowHtml.replace(&quot;%COGNOME&quot;, element.cognome);
+               &nbsp;&nbsp;&nbsp;&nbsp;rowHtml =&nbsp;rowHtml.replace(&quot;%ETA&quot;, element.et&agrave;);
+               &nbsp;&nbsp;&nbsp;&nbsp;console.log(rowHtml);
+               &nbsp;&nbsp;&nbsp;&nbsp;html += rowHtml;
+               &nbsp;&nbsp;});
+               &nbsp;&nbsp;table.innerHTML = html;
+               };</code></pre></div>
+               
+               
+               
+               <p>Ricapitolando vediamo il meccanismo di funzionamento:</p>
+               
+               
+               
+               <p>1) L&rsquo;utente compila i campi e fa click su &ldquo;aggiungi&rdquo; (evento).</p>
+               
+               
+               
+               <p>2) La funzione &ldquo;button.onclick&rdquo; fa partire l&rsquo;aggiunta del nuovo elemento alla lista (azione).</p>
+               
+               
+               
+               <p>3) La funzione render() legge la lista e ricrea tutta la tabella da zero (reazione).</p>
+               
+               
+               
+               <p>Con questo sistema&nbsp;&nbsp;non si manipola quindi l&rsquo;html precedente, ma lo si cancella e lo si ricrea.&nbsp;Questo sistema &egrave; pi&ugrave; efficiente di altri sistemi, come per esempio quello di aggiungere solo l&rsquo;html di una riga alla volta: in questo caso dovremmo analizzare l&rsquo;html gi&agrave; generato analizzando quindi il DOM ed eseguendo il binding. Questa tecnica &egrave; ormai oggi considerata deprecata perch&eacute; molto inefficiente nei browser moderni. E&rsquo; sempre pi&ugrave; efficiente invece cancellare e rigenerare l&rsquo;html, operazione che viene agevolata dai motori di visualizzazione dei moderni browsers.</p>
+               
+               
+               
+               <p>Scrivere il codice in questo modo aiuta a tenere separati i due ambiti principali dell&rsquo;applicazione:</p>
+               
+               
+               
+               <ul class="wp-block-list">
+               <li>i dati sono memorizzati in modo efficiente usando array, dizionari, ecc. e sono usati dal Javascript, in una parola, il <strong>modello dati</strong>;</li>
+               
+               
+               
+               <li><strong>l&rsquo;interfaccia utente</strong> &egrave; invece in HTML e JS crea solo delle stringhe di testo HTML tramite una funzione render: JS non manipola MAI l&rsquo;HTML, ma esegue il binding solo delle parti della pagina da leggere (es. form) o da cui intercettare eventi (es. pulsanti);</li>
+               </ul>
+               
+               
+               
+               <h2 class="wp-block-heading">Trasformazioni dai dati all&rsquo;HTML</h2>
+               
+               
+               
+               <p>E&rsquo; possibile usare map() e join() per trasformare velocemente una tabella con dei dati in html. Per generare un elenco di colonne di tabella HTML si pu&ograve; fare cos&igrave;:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const list = [1,2,3];
+               const htmlElements = list.map(element =&gt; &quot;&lt;td&gt;&quot; + element + &quot;&lt;/td&gt;&quot;);
+               // Otterremo: [&quot;&lt;td&gt;1&lt;/td&gt;&quot;, &quot;&lt;td&gt;2&lt;/td&gt;&quot;, &quot;&lt;td&gt;3&lt;/td&gt;&quot;]
+               </code></pre></div>
+               
+               
+               
+               <p>Da qui &egrave; poi possibile usare join():</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const htmlRow = htmlElements.join(&quot;&quot;); 
+               // &quot;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&quot;</code></pre></div>
+               
+               
+               
+               <p>La stessa tecnica si pu&ograve; replicare anche per le righe.</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const data = [[1,2,3], [4,5,6]];
+               let htmlTable = &quot;&lt;table&gt;&quot;;
+               htmlTable += data.map((row) =&gt; &quot;&lt;tr&gt;&quot;
+                 + row.map((col) =&gt; &quot;&lt;td&gt;&quot;+ col + &quot;&lt;/td&gt;&quot;).join(&quot;&quot;) 
+                 + &quot;&lt;/tr&gt;&quot;).join(&quot;&quot;));
+               htmlTable += &quot;&lt;/table&quot;;</code></pre></div>
+               </div><div id="eckb-article-content-footer">
+                     <div class="epkb-article-navigation-container ">            				<div class="epkb-article-navigation__previous"> <a href="https://cipiaceinfo.it/docs/programmazione/javascript/javascript-nel-browser/" rel="prev">
+                              <span class="epkb-article-navigation__label">
+                                  <span class="epkb-article-navigation__label__previous__icon epkbfa epkbfa-caret-left"></span>
+                                  Precedente
+                              </span>
+                              <span title="Javascript nel browser" class="epkb-article-navigation-article__title">
+                                 <span class="epkb-article-navigation__previous__icon epkbfa ep_font_icon_document"></span>
+                                 Javascript nel browser
+                              </span>
+                           </a>				</div>  				<div class="epkb-article-navigation__next"><a href="https://cipiaceinfo.it/docs/programmazione/javascript/funzioni-2/" rel="next">
+                              <span class="epkb-article-navigation__label">
+                                  Successivo
+                                  <span class="epkb-article-navigation__label__next__icon epkbfa epkbfa-caret-right"></span>
+                                   </span>
+                              <span title="Funzioni" class="epkb-article-navigation-article__title">
+                                 Funzioni
+                                 <span class="epkb-article-navigation__next__icon epkbfa ep_font_icon_document"></span>
+                              </span>
+                           </a>
+                                       </div>  
+                     </div>        </div>
+                             </article><!-- /#eckb-article-content -->     <div id="eckb-article-right-sidebar"></div>
+                        </div><!-- /#eckb-article-body -->              <div id="eckb-article-footer"></div>
+                     </div><!-- /#eckb-article-page-container-v2 -->
+               
+                     <style id="eckb-article-styles" type="text/css"> #eckb-article-body .eckb-article-toc ul a.active{background-color:#000000;color:#ffffff;}#eckb-article-body .eckb-article-toc ul a:hover{background-color:#e1ecf7;color:#000000;}#eckb-article-body .eckb-article-toc__inner{border-color:#2b98e5;font-size:14px !important;background-color:#fcfcfc;}#eckb-article-body .eckb-article-toc__inner a{color:#000000;font-size:14px !important;}#eckb-article-body .eckb-article-toc__title{color:#2b98e5;font-size:15px !important;}@media only screen and (min-width:768px){#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-1,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-2,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-3,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-4,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-5{flex-direction:row;}}#eckb-article-content-header-row-1{margin-bottom:8px;}#eckb-article-content-header-row-1 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-1 .eckb-article-content-header-row-right-group{align-items:center;}.eckb-article-content-toolbar-button-container{background-color:#fefefe;padding:10px 10px 10px 10px;margin:0px 0px 0px 0px;border-radius:0px;border-width:0px;border-color:#ffffff;border-style:solid;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-text{color:#000000;font-size:15px;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-icon{color:#000000;font-size:20px;}.eckb-article-content-toolbar-button-container:hover{background-color:#ffffff;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-text{color:#000000;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-icon{color:#000000;}#eckb-article-content-header-row-2{margin-bottom:15px;}#eckb-article-content-header-row-2 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-2 .eckb-article-content-header-row-right-group{align-items:flex-end;}#eckb-article-content-footer .epkb-article-navigation-container a{background-color:#f7f7f7;color:#1e73be;}#eckb-article-content-footer .epkb-article-navigation-container a:hover{background-color:#dee3e5;color:#6d6d6d;}</style>   
+                  </div> 			</div>
+                     </div>
+                  </div><!-- #content -->
+               .</p>
+            <a href="#home">Torna alla Home</a>
+         </div>
+      </div>                  
+   
+      <div id="pagina2" class="page">
+         <div class="row">
+            <p><article id="eckb-article-content" data-article-id="357" >                        <div id="eckb-article-content-header-v2"><div id="eckb-article-content-header-row-1"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-back-navigation-container"><div class="eckb-navigation-back  "  style="margin-top: 4px; margin-right: 15px; margin-bottom: 4px; margin-left: 4px;" ><div tabindex="0" class="eckb-navigation-button"  style="padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; color: #037ba3; background-color: #ffffff; font-size:14px;border-radius: 3px; border-style: solid; border-width: 1px; border-color: #b5b5b5;"  onclick="history.go(-1);" >&lt; Home</div></div></div><div id="eckb-article-content-breadcrumb-container">
+               <div class="eckb-breadcrumb"  style="padding-top: 0px; padding-right: 4px; padding-bottom: 0px; padding-left: 4px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size:14px;" >		<nav class="eckb-breadcrumb-outline" aria-label="Breadcrumb">
+                     <ul class="eckb-breadcrumb-nav">       <li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/documentazione/"><span  style="color: #037ba3;"  >Main</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/"><span  style="color: #037ba3;"  >Programmazione</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/javascript/"><span  style="color: #037ba3;"  >Javascript</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><span aria-current="page" style="color: #037ba3;"  >Canvas</span>	</span></li>		</ul>
+                  </nav>
+               
+               </div>          </div></div><div class="eckb-article-content-header-row-right-group"><div id="eckb-article-content-toolbar-container">
+                     <div class="eckb-article-content-toolbar-button-container">
+                        <span class="eckb-print-button-container">			<span class="eckb-toolbar-button-text">Stampa</span><span class="eckb-toolbar-button-icon epkbfa epkbfa-print"></span>			</span>
+                     </div> </div></div></div><div id="eckb-article-content-header-row-2"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-content-title-container"><h1 class="eckb-article-title">Canvas</h1></div></div></div></div><div id="eckb-article-content-body"><h2 class="wp-block-heading"><strong>Cosa &egrave; il Canvas</strong></h2>
+               
+               
+               
+               <p>L&rsquo;oggetto <strong>canvas</strong> (rappresentato in html col tag &lt;<strong>canvas</strong>&gt;) &egrave; uno strumento che permette di creare un&rsquo;area all&rsquo;interno della pagina web in cui &egrave; possibile disegnare programmaticamente linee, forme, figure. E&rsquo; quindi un&rsquo;area di grafica 2D.&nbsp;</p>
+               
+               
+               
+               <p>I canvas sono molto usati nelle pagine html per questi scopi:</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>arte visuale</strong>: ad esempio scritte artistiche, scritte a scorrimento, ecc. in particolare nel coding creativo<a href="applewebdata://02A2E74D-28E6-44E2-97A1-AD5FA9019937#_ftn1"><sup>[1]</sup></a></p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>animazioni</strong>&nbsp;(in alternativa a SVG<a href="applewebdata://02A2E74D-28E6-44E2-97A1-AD5FA9019937#_ftn2"><sup>[2]</sup></a>)&nbsp;</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>grafici</strong>&nbsp;(es. a istogramma, barra, torta, ecc.)</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>videogiochi</strong></p>
+               
+               
+               
+               <p>&ndash; &egrave; alla base della libreria&nbsp;<strong>WebGL</strong>&nbsp;per la grafica 3D</p>
+               
+               
+               
+               <p>Vediamo come funziona.</p>
+               
+               
+               
+               <h3 class="wp-block-heading"><strong>Creazione ed utilizzo</strong></h3>
+               
+               
+               
+               <p>L&rsquo;area (rettangolare) in html la si inizializza con questo codice:</p>
+               
+               
+               
+               <p>&lt;canvas id=&rdquo;canvas&rdquo; width=&rdquo;500&Prime; height=&rdquo;500&Prime;&gt;&lt;/canvas&gt;</p>
+               
+               
+               
+               <p>(larghezza ed altezza sono modificabili anche via CSS che JS).</p>
+               
+               
+               
+               <p>Il resto dell&rsquo;attivit&agrave; si svolge in Javascript.</p>
+               
+               
+               
+               <p>Per usare il canvas bisogna eseguire prima di tutto queste due istruzioni:</p>
+               
+               
+               
+               <p>const canvas = document.getElementById(&ldquo;canvas&rdquo;);</p>
+               
+               
+               
+               <p>const ctx = canvas.getContext(&ldquo;2d&rdquo;);</p>
+               
+               
+               
+               <p>L&rsquo;oggetto&nbsp;<strong>ctx</strong>&nbsp;(Context) sar&agrave; l&rsquo;oggetto che ci permette di disegnare nel canvas.</p>
+               
+               
+               
+               <p>Il canvas &egrave; internamente una griglia dove ogni punto ha coordinate (x,y) con la posizione (0,0) in alto a sinistra.</p>
+               
+               
+               
+               <figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="372" height="372" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25.png" alt="" class="wp-image-360" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25.png 372w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25-300x300.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25-150x150.png 150w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25-230x230.png 230w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-25-350x350.png 350w" sizes="(max-width: 372px) 100vw, 372px"/></figure>
+               
+               
+               
+               <p>L&rsquo;attivit&agrave; di disegno consiste quindi nel disegnare forme all&rsquo;interno della griglia, dando le coordinate e le dimensioni.</p>
+               
+               
+               
+               <h3 class="wp-block-heading"><strong>Rettangoli</strong></h3>
+               
+               
+               
+               <figure class="wp-block-table"><table><tbody><tr><td><strong>Comando</strong></td><td><strong>Esempio</strong></td><td><strong>Note</strong></td></tr><tr><td>ctx.fillRect(x, y, width, height);</td><td>ctx.fillRect(25,&nbsp;25,&nbsp;100, 100);</td><td>Crea un rettangolo (pieno) dalle coordinate x,y e dimensioni width ed height.</td></tr><tr><td>ctx.strokeRect(x, y, width, height);</td><td>ctx.strokeRect(45,&nbsp;45,&nbsp;60, 60);</td><td>Crea un rettangolo (vuoto) dalle coordinate x,y e dimensioni width ed height.</td></tr><tr><td>ctx.clearRect(x, y, width, height);</td><td>ctx.clearRect(50, 50, 50, 50);</td><td>&nbsp;</td></tr></tbody></table></figure>
+               
+               
+               
+               <p>Se si eseguono le seguenti 3 istruzioni:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.fillRect(25, 25, 100, 100);
+               ctx.strokeRect(45, 45, 60, 60);
+               ctx.clearRect(50, 50, 50, 50);</code></pre></div>
+               
+               
+               
+               <p>Spiegazione:</p>
+               
+               
+               
+               <p>&ndash; <strong>fill</strong> crea un rettangolo pieno</p>
+               
+               
+               
+               <p>&ndash; <strong>stroke</strong> un rettangolo pieno</p>
+               
+               
+               
+               <p>&ndash; <strong>clear</strong> cancella tutto quanto c&rsquo;&egrave; nel rettangolo</p>
+               
+               
+               
+               <p>Cosa si ottiene?</p>
+               
+               
+               
+               <figure class="wp-block-image size-large"><img decoding="async" width="1024" height="625" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-1024x625.png" alt="" class="wp-image-361" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-1024x625.png 1024w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-300x183.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-768x469.png 768w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-1000x611.png 1000w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-230x140.png 230w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-350x214.png 350w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27-480x293.png 480w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.34.27.png 1274w" sizes="(max-width: 1024px) 100vw, 1024px"/></figure>
+               
+               
+               
+               <p>Notare che&nbsp;<strong>clearRect</strong>&nbsp;pu&ograve; essere usato per cancellare tutto il canvas.</p>
+               
+               
+               
+               <h3 class="wp-block-heading"><strong>Disegnare forme con path</strong></h3>
+               
+               
+               
+               <p>E&rsquo; possibile disegnare forme complesse utilizzando il path.</p>
+               
+               
+               
+               <p>Vediamo un esempio: se voglio disegnare una linea che va da 100, 100 a 300, 300 uso queste istruzioni:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.beginPath();
+               ctx.moveTo(100,100);
+               ctx.lineTo(300,300);
+               ctx.moveTo(100,300);
+               ctx.lineTo(300, 300);
+               ctx.moveTo(100,100);
+               ctx.lineTo(100, 300);
+               ctx.lineWidth = 2;
+               
+               ctx.stroke();</code></pre></div>
+               
+               
+               
+               <p>Si dovrebbe ottenere un&nbsp;triangolo rettangolo.</p>
+               
+               
+               
+               <p>Riassumendo:</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>beginPath</strong>&nbsp;da inizio al disegno;</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>moveTo</strong>&nbsp;sposta la &ldquo;penna&rdquo; su una coordinata;</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>lineTo</strong>&nbsp;disegna una linea dalla coordinata attuale alla nuova coordinata;</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>lineWidth</strong>&nbsp;da la dimensione della linea (istruzione non obbligatoria);</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<strong>stroke</strong>&nbsp;esegue la &ldquo;commit&rdquo;, ovvero rende il disegno effettivo.</p>
+               
+               
+               
+               <h3 class="wp-block-heading">Archi, cerchi e circonferenze </h3>
+               
+               
+               
+               <p>Vediamo ora come si disegna una circonferenza:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.beginPath();
+               ctx.arc(250, 250, 200, 0, 2 * Math.PI);
+               ctx.lineWidth = 1;
+               
+               ctx.stroke();</code></pre></div>
+               
+               
+               
+               <p>Come si pu&ograve; vedere, arc riceve 5 parametri:</p>
+               
+               
+               
+               <ul class="wp-block-list">
+               <li>le coordinate x ed y;</li>
+               
+               
+               
+               <li>la dimensione del raggio;</li>
+               
+               
+               
+               <li>gli ultimi due parametri sono l&rsquo;angolo di inizio e di fine dell&rsquo;arco: nel caso del cerchio sono 0 e 2&pi;.</li>
+               </ul>
+               
+               
+               
+               <p>Se invece vogliamo un cerchio pieno usiamo fill.</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.beginPath();
+               ctx.arc(250, 250, 50, 0, 2 * Math.PI);
+               ctx.lineWidth = 1;
+               
+               ctx.fill();</code></pre></div>
+               
+               
+               
+               <p>Riassumendo:</p>
+               
+               
+               
+               <p>&ndash; stroke indica un disegno solo del contorno;</p>
+               
+               
+               
+               <p>&ndash; fill indica un disegno della forma piena.</p>
+               
+               
+               
+               <p>Se vogliamo disegnare pi&ugrave; forme diverse con strutture diverse &egrave; sufficiente che replichiamo la struttura:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.beginPath();
+               
+               ...
+               
+               ctx.stroke() o ctx.fill();</code></pre></div>
+               
+               
+               
+               <h3 class="wp-block-heading"><strong>I colori</strong></h3>
+               
+               
+               
+               <p>Si pu&ograve; disegnare a colori con queste istruzioni:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>ctx.fillStyle = &quot;#ff0000&quot;;
+               ctx.strokeStyle = &quot;#00cc22&quot;;
+               </code></pre></div>
+               
+               
+               
+               <p>dove il codice altro non &egrave; che la terna RGB esadecimale. </p>
+               
+               
+               
+               <h3 class="wp-block-heading"><strong>Esempio: movimento di una pallina 2D</strong></h3>
+               
+               
+               
+               <p>In questo esempio si prover&agrave; a simulare il comportamento di una pallina in 2D. Qui uno screenshot di come si pu&ograve; vedere la &ldquo;pallina&rdquo; (che altro non &egrave; che un cerchio).</p>
+               
+               
+               
+               <figure class="wp-block-image size-full"><img decoding="async" width="700" height="428" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26.png" alt="" class="wp-image-362" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26.png 700w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26-300x183.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26-230x141.png 230w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26-350x214.png 350w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-26-480x293.png 480w" sizes="(max-width: 700px) 100vw, 700px"/></figure>
+               
+               
+               
+               <p>Vediamo nello specifico il funzionamento di questo algoritmo.&nbsp;</p>
+               
+               
+               
+               <h4 class="wp-block-heading"><strong>1)&nbsp;La pallina viene disegnata da una funzione&nbsp;<em>render</em>&nbsp;</strong></h4>
+               
+               
+               
+               <p>Questa riceve come parametro una coppia di coordinate&nbsp;<em>(x,y)</em>&nbsp;e che prima cancella l&rsquo;intero canvas (clearRect sull&rsquo;intera dimensione del canvas) e poi ridisegna la pallina nella posizione richiesta. La pallina come detto viene simulata disegnando un cerchio di piccole dimensioni (5-10 pixel).</p>
+               
+               
+               
+               <h4 class="wp-block-heading"><strong>2) Il refresh</strong></h4>
+               
+               
+               
+               <p>L&rsquo;effetto visivo dello spostamento della pallina si ottiene mediante aggiornamento della posizione&nbsp;<em>(x,y)</em>&nbsp;della pallina stessa. Dobbiamo quindi scrivere&nbsp;<strong>una funzione&nbsp;<em>refresh</em>&nbsp;che calcola le nuove coordinate in cui si dovr&agrave; trovare la pallina in base alla sua velocit&agrave; e la sua direzione</strong>. Questa funzione dovr&agrave; essere eseguita periodicamente tramite&nbsp;<em>setInterval</em>&nbsp;con una frequenza abbastanza veloce da rendere il movimento fluido per l&rsquo;occhio umano. E&rsquo; in questo modo che funzionano tutti i videogiochi.</p>
+               
+               
+               
+               <p>Riassumendo: ad ogni esecuzione di setInterval verr&agrave; eseguita:</p>
+               
+               
+               
+               <p>&ndash;&nbsp;<em>refresh()</em>: funzione che ricalcola le nuove coordinate&nbsp;<em>(x,y)</em></p>
+               
+               
+               
+               <p>&ndash;&nbsp;<em>render()</em>: ridisegna la pallina&nbsp;</p>
+               
+               
+               
+               <h4 class="wp-block-heading"><strong>3)&nbsp;Come calcolare le nuove coordinate.</strong></h4>
+               
+               
+               
+               <p>La pallina ha una direzione (angolo&nbsp;<img loading="lazy" decoding="async" width="8" height="14" src="blob:https://cipiaceinfo.it/4f55db9c-0e2d-44bf-80a7-b384bd39934c"/>&nbsp;) e una velocit&agrave;. La nuova posizione va aggiornata ogni&nbsp;<strong><em>t</em></strong>&nbsp;millisecondi, e corrisponder&agrave; ad uno spostamento in diagonale, ovvero sia orizzontale (verso destra o sinistra) che verticale (verso l&rsquo;alto o verso il basso). Qui un esempio di spostamento con algolo di &pi;/6 (30 gradi):</p>
+               
+               
+               
+               <figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="264" height="242" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-27.png" alt="" class="wp-image-363" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/image-27.png 264w, https://cipiaceinfo.it/wp-content/uploads/2024/07/image-27-230x211.png 230w" sizes="auto, (max-width: 264px) 100vw, 264px"/></figure>
+               
+               
+               
+               <p>La traslazione della pallina ha una <span class="glossaryLink"  aria-describedby="tt"  data-cmtooltip="&lt;div class=glossaryItemTitle&gt;Componente&lt;/div&gt;&lt;div class=glossaryItemBody&gt;&amp;lt;!-- wp:paragraph --&amp;gt;Un componente di una applicazione &egrave; un elemento autonomo del software che svolge un compito definito. Esso comunica con gli altri componenti dell&amp;#039;applicazione e pu&ograve; far parte di un modulo. &amp;lt;br/&amp;gt;&amp;lt;!-- /wp:paragraph --&amp;gt;&lt;/div&gt;"  data-gt-translate-attributes='[{"attribute":"data-cmtooltip", "format":"html"}]'  tabindex='0' role='link'>componente</span> orizzontale, che corrisponde al coseno di&nbsp;<img loading="lazy" decoding="async" width="8" height="14" src="blob:https://cipiaceinfo.it/4f55db9c-0e2d-44bf-80a7-b384bd39934c"/><strong>&nbsp;</strong>ed una <span class="glossaryLink"  aria-describedby="tt"  data-cmtooltip="&lt;div class=glossaryItemTitle&gt;Componente&lt;/div&gt;&lt;div class=glossaryItemBody&gt;&amp;lt;!-- wp:paragraph --&amp;gt;Un componente di una applicazione &egrave; un elemento autonomo del software che svolge un compito definito. Esso comunica con gli altri componenti dell&amp;#039;applicazione e pu&ograve; far parte di un modulo. &amp;lt;br/&amp;gt;&amp;lt;!-- /wp:paragraph --&amp;gt;&lt;/div&gt;"  data-gt-translate-attributes='[{"attribute":"data-cmtooltip", "format":"html"}]'  tabindex='0' role='link'>componente</span> verticale pari al seno di&nbsp;<img loading="lazy" decoding="async" width="8" height="14" src="blob:https://cipiaceinfo.it/4f55db9c-0e2d-44bf-80a7-b384bd39934c"/>, entrambi moltiplicati per la velocit&agrave; della pallina stessa.</p>
+               
+               
+               
+               <p>Quindi una pallina che all&rsquo;istante&nbsp;<em>t</em>&nbsp;&egrave; nella posizione&nbsp;<em>(x,y)&nbsp;</em>nell&rsquo;istante&nbsp;<em>t&rsquo;</em>&nbsp;(ad esempio dopo 20 millisecondi) si trover&agrave; nella posizione (x&rsquo;,y&rsquo;):</p>
+               
+               
+               
+               <figure class="wp-block-image size-full is-resized"><img loading="lazy" decoding="async" width="562" height="138" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09.png" alt="" class="wp-image-364" style="width:326px;height:auto" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09.png 562w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09-300x74.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09-230x56.png 230w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09-350x86.png 350w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.09-480x118.png 480w" sizes="auto, (max-width: 562px) 100vw, 562px"/></figure>
+               
+               
+               
+               <p>Quindi se ad esempio all&rsquo;istante t la pallina si trova nella posizione (100,100) ed ha velocit&agrave; di 1 pixel/ms e angolo 30&deg; all&rsquo;istante t&rsquo; (=t+20ms) si trover&agrave;:</p>
+               
+               
+               
+               <figure class="wp-block-image size-full is-resized"><img loading="lazy" decoding="async" width="698" height="124" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40.png" alt="" class="wp-image-365" style="width:401px;height:auto" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40.png 698w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40-300x53.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40-230x41.png 230w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40-350x62.png 350w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.40.40-480x85.png 480w" sizes="auto, (max-width: 698px) 100vw, 698px"/></figure>
+               
+               
+               
+               <p>Ricordare sempre che nei canvas il punto in alto a sinistra &egrave; (0,0). Quello che si deve fare nell&rsquo;esercizio &egrave; quindi semplicemente calcolare le nuove posizioni con la formula sopra riportata.</p>
+               
+               
+               
+               <h4 class="wp-block-heading">4)&nbsp;<strong>Urti con le pareti.</strong></h4>
+               
+               
+               
+               <p>In caso di urto con le pareti supponiamo che sia elastico, quindi la velocit&agrave; rimane la stessa, ci&ograve; che cambia &egrave; l&rsquo;angolo di uscita, che per effetto del rimbalzo cambia secondo la seguente regola:</p>
+               
+               
+               
+               <p>&ndash; se l&rsquo;urto &egrave; verso le pareti verticali (dx o sx) il nuovo angolo &egrave;:&nbsp;</p>
+               
+               
+               
+               <figure class="wp-block-image size-full is-resized"><img loading="lazy" decoding="async" width="282" height="70" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.37.png" alt="" class="wp-image-366" style="width:172px;height:auto" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.37.png 282w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.37-230x57.png 230w" sizes="auto, (max-width: 282px) 100vw, 282px"/></figure>
+               
+               
+               
+               <p>&nbsp;se l&rsquo;urto &egrave; verso le pareti orizzontali (sopra o sotto) il nuovo angolo &egrave;:</p>
+               
+               
+               
+               <figure class="wp-block-image size-full is-resized"><img loading="lazy" decoding="async" width="306" height="70" src="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.50.png" alt="" class="wp-image-367" style="width:183px;height:auto" srcset="https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.50.png 306w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.50-300x69.png 300w, https://cipiaceinfo.it/wp-content/uploads/2024/07/Schermata-2024-07-07-alle-15.42.50-230x53.png 230w" sizes="auto, (max-width: 306px) 100vw, 306px"/></figure>
+               
+               
+               
+               <p>A livello di codice, dopo ogni traslazione bisogna verificare se la pallina sta uscendo dall&rsquo;area del canvas. Se si vede che sta uscendo bisogna ricalcolare il nuovo angolo, cos&igrave; alla traslazione successiva la pallina avr&agrave; cambiato direzione, per effetto appunto del rimbalzo.&nbsp;</p>
+               
+               
+               
+               <p>Qui un esempio di codice:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const&nbsp;refresh&nbsp;=&nbsp;(ball)&nbsp;=&gt;&nbsp;{
+               &nbsp;&nbsp;let&nbsp;newx&nbsp;=&nbsp;ball.x&nbsp;+&nbsp;ball.speed&nbsp;*&nbsp;Math.cos(ball.angle);
+               &nbsp;&nbsp;let&nbsp;newy&nbsp;=&nbsp;ball.y&nbsp;+&nbsp;ball.speed&nbsp;*&nbsp;Math.sin(ball.angle);
+               &nbsp;&nbsp;if&nbsp;(newx&nbsp;&lt;&nbsp;size&nbsp;||&nbsp;newx&nbsp;&gt;&nbsp;width-size) {
+               &nbsp;&nbsp;&nbsp;&nbsp;ball.angle&nbsp;=&nbsp;Math.PI&nbsp;-&nbsp;ball.angle;
+               &nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(newy&nbsp;&lt;&nbsp;size&nbsp;||&nbsp;newy&nbsp;&gt;&nbsp;height-size) {
+               &nbsp;&nbsp;&nbsp;&nbsp;ball.angle&nbsp;=&nbsp;2&nbsp;*&nbsp;Math.PI&nbsp;-&nbsp;ball.angle;
+               &nbsp;&nbsp;}&nbsp;else&nbsp;{
+               &nbsp;&nbsp;&nbsp;&nbsp;ball.x&nbsp;=&nbsp;newx;
+               &nbsp;&nbsp;&nbsp;&nbsp;ball.y&nbsp;=&nbsp;newy;
+               &nbsp;&nbsp;}
+               };</code></pre></div>
+               
+               
+               
+               <p>Dove size &egrave; la dimensione in pixel della pallina, ball &egrave; un dizionario che contiene x, y, speed e angle della pallina.</p>
+               
+               
+               
+               <p>Si lascia allo studente il resto dell&rsquo;elaborazione come semplice esercizio.</p>
+               
+               
+               
+               <h2 class="wp-block-heading">Eventi da tastiera</h2>
+               
+               
+               
+               <p>Per intercettare un evento da tastiera in una pagina web &egrave; sufficiente eseguire il seguente codice:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>document.onkeydown&nbsp;=&nbsp;function(e) {
+               &nbsp;&nbsp;&nbsp;&nbsp;console.log(String.fromCharCode(e.keyCode)+&quot; --&gt; &quot;+e.keyCode);
+               };</code></pre></div>
+               
+               
+               
+               <pre class="wp-block-code"><code>&nbsp;
+               Il valore di keyCode indica il codice numerico del tasto premuto.</code></pre>
+               
+               
+               
+               <p>Qui un elenco di codici.</p>
+               
+               
+               
+               <figure class="wp-block-table"><table><tbody><tr><td><strong>Keyboard key Pressed</strong><strong></strong></td><td><strong>JavaScript Key Code value</strong><strong></strong></td></tr><tr><td>backspace</td><td>8</td></tr><tr><td>tab</td><td>9</td></tr><tr><td>enter</td><td>13</td></tr><tr><td>shift</td><td>16</td></tr><tr><td>ctrl</td><td>17</td></tr><tr><td>alt</td><td>18</td></tr><tr><td>pause/break</td><td>19</td></tr><tr><td>caps lock</td><td>20</td></tr><tr><td>escape</td><td>27</td></tr><tr><td>page up</td><td>33</td></tr><tr><td>Space</td><td>32</td></tr><tr><td>page down</td><td>34</td></tr><tr><td>end</td><td>35</td></tr><tr><td>home</td><td>36</td></tr><tr><td>arrow left</td><td>37</td></tr><tr><td>arrow up</td><td>38</td></tr><tr><td>arrow right</td><td>39</td></tr><tr><td>arrow down</td><td>40</td></tr><tr><td>print screen</td><td>44</td></tr><tr><td>insert</td><td>45</td></tr><tr><td>delete</td><td>46</td></tr><tr><td>0</td><td>48</td></tr><tr><td>1</td><td>49</td></tr><tr><td>2</td><td>50</td></tr><tr><td>3</td><td>51</td></tr><tr><td>4</td><td>52</td></tr><tr><td>5</td><td>53</td></tr><tr><td>6</td><td>54</td></tr><tr><td>7</td><td>55</td></tr><tr><td>8</td><td>56</td></tr><tr><td>9</td><td>57</td></tr><tr><td>a</td><td>65</td></tr><tr><td>b</td><td>66</td></tr><tr><td>c</td><td>67</td></tr><tr><td>d</td><td>68</td></tr><tr><td>e</td><td>69</td></tr><tr><td>f</td><td>70</td></tr><tr><td>g</td><td>71</td></tr><tr><td>h</td><td>72</td></tr><tr><td>i</td><td>73</td></tr><tr><td>j</td><td>74</td></tr><tr><td>k</td><td>75</td></tr><tr><td>l</td><td>76</td></tr><tr><td>m</td><td>77</td></tr><tr><td>n</td><td>78</td></tr><tr><td>o</td><td>79</td></tr><tr><td>p</td><td>80</td></tr><tr><td>q</td><td>81</td></tr><tr><td>r</td><td>82</td></tr><tr><td>s</td><td>83</td></tr><tr><td>t</td><td>84</td></tr><tr><td>u</td><td>85</td></tr><tr><td>v</td><td>86</td></tr><tr><td>w</td><td>87</td></tr><tr><td>x</td><td>88</td></tr><tr><td>y</td><td>89</td></tr><tr><td>z</td><td>90</td></tr><tr><td>left window key</td><td>91</td></tr><tr><td>right window key</td><td>92</td></tr><tr><td>select key</td><td>93</td></tr><tr><td>numpad 0</td><td>96</td></tr><tr><td>numpad 1</td><td>97</td></tr><tr><td>numpad 2</td><td>98</td></tr><tr><td>numpad 3</td><td>99</td></tr><tr><td>numpad 4</td><td>100</td></tr><tr><td>numpad 5</td><td>101</td></tr><tr><td>numpad 6</td><td>102</td></tr><tr><td>numpad 7</td><td>103</td></tr><tr><td>numpad 8</td><td>104</td></tr><tr><td>numpad 9</td><td>105</td></tr><tr><td>multiply</td><td>106</td></tr><tr><td>add</td><td>107</td></tr><tr><td>subtract</td><td>109</td></tr><tr><td>decimal point</td><td>110</td></tr><tr><td>divide</td><td>111</td></tr><tr><td>f1</td><td>112</td></tr><tr><td>f2</td><td>113</td></tr><tr><td>f3</td><td>114</td></tr><tr><td>f4</td><td>115</td></tr><tr><td>f5</td><td>116</td></tr><tr><td>f6</td><td>117</td></tr><tr><td>f7</td><td>118</td></tr><tr><td>f8</td><td>119</td></tr><tr><td>f9</td><td>120</td></tr><tr><td>f10</td><td>121</td></tr><tr><td>f11</td><td>122</td></tr><tr><td>f12</td><td>123</td></tr><tr><td>num lock</td><td>144</td></tr><tr><td>scroll lock</td><td>145</td></tr><tr><td>semi-colon</td><td>186</td></tr><tr><td>equal sign</td><td>187</td></tr><tr><td>comma</td><td>188</td></tr><tr><td>dash</td><td>189</td></tr><tr><td>period</td><td>190</td></tr><tr><td>forward slash</td><td>191</td></tr><tr><td>open bracket</td><td>219</td></tr><tr><td>back slash</td><td>220</td></tr><tr><td>close braket</td><td>221</td></tr><tr><td>single quote</td><td>222</td></tr></tbody></table></figure>
+               
+               
+               
+               <hr class="wp-block-separator has-alpha-channel-opacity">
+               
+               
+               
+               <p><a href="applewebdata://02A2E74D-28E6-44E2-97A1-AD5FA9019937#_ftnref1"><sup>[1]</sup></a>&nbsp;Il &ldquo;coding creativo&rdquo; &egrave; l&rsquo;uso della programmazione per produrre applicazioni visuali, che mostrano disegni ed animazioni: possono essere sfondi, salvaschermi, scritte in movimento, ecc. tutte prodotte da algoritmi generativi.</p>
+               
+               
+               
+               <p><a href="applewebdata://02A2E74D-28E6-44E2-97A1-AD5FA9019937#_ftnref2"><sup>[2]</sup></a>&nbsp;il formato SVG permette di disegnare oggetti vettoriali tramite una descrizione testuale in XML</p>
+               </div><div id="eckb-article-content-footer">
+                     <div class="epkb-article-navigation-container ">            				<div class="epkb-article-navigation__previous"> <a href="https://cipiaceinfo.it/docs/programmazione/javascript/debugging/" rel="prev">
+                              <span class="epkb-article-navigation__label">
+                                  <span class="epkb-article-navigation__label__previous__icon epkbfa epkbfa-caret-left"></span>
+                                  Precedente
+                              </span>
+                              <span title="Debugging" class="epkb-article-navigation-article__title">
+                                 <span class="epkb-article-navigation__previous__icon epkbfa ep_font_icon_document"></span>
+                                 Debugging
+                              </span>
+                           </a>				</div>  				<div class="epkb-article-navigation__next"><a href="https://cipiaceinfo.it/docs/programmazione/javascript/oggetti-e-classi/" rel="next">
+                              <span class="epkb-article-navigation__label">
+                                  Successivo
+                                  <span class="epkb-article-navigation__label__next__icon epkbfa epkbfa-caret-right"></span>
+                                   </span>
+                              <span title="Oggetti e classi" class="epkb-article-navigation-article__title">
+                                 Oggetti e classi
+                                 <span class="epkb-article-navigation__next__icon epkbfa ep_font_icon_document"></span>
+                              </span>
+                           </a>
+                                       </div>  
+                     </div>        </div>
+                             </article><!-- /#eckb-article-content -->     <div id="eckb-article-right-sidebar"></div>
+                        </div><!-- /#eckb-article-body -->              <div id="eckb-article-footer"></div>
+                     </div><!-- /#eckb-article-page-container-v2 -->
+               
+                     <style id="eckb-article-styles" type="text/css"> #eckb-article-body .eckb-article-toc ul a.active{background-color:#000000;color:#ffffff;}#eckb-article-body .eckb-article-toc ul a:hover{background-color:#e1ecf7;color:#000000;}#eckb-article-body .eckb-article-toc__inner{border-color:#2b98e5;font-size:14px !important;background-color:#fcfcfc;}#eckb-article-body .eckb-article-toc__inner a{color:#000000;font-size:14px !important;}#eckb-article-body .eckb-article-toc__title{color:#2b98e5;font-size:15px !important;}@media only screen and (min-width:768px){#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-1,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-2,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-3,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-4,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-5{flex-direction:row;}}#eckb-article-content-header-row-1{margin-bottom:8px;}#eckb-article-content-header-row-1 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-1 .eckb-article-content-header-row-right-group{align-items:center;}.eckb-article-content-toolbar-button-container{background-color:#fefefe;padding:10px 10px 10px 10px;margin:0px 0px 0px 0px;border-radius:0px;border-width:0px;border-color:#ffffff;border-style:solid;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-text{color:#000000;font-size:15px;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-icon{color:#000000;font-size:20px;}.eckb-article-content-toolbar-button-container:hover{background-color:#ffffff;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-text{color:#000000;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-icon{color:#000000;}#eckb-article-content-header-row-2{margin-bottom:15px;}#eckb-article-content-header-row-2 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-2 .eckb-article-content-header-row-right-group{align-items:flex-end;}#eckb-article-content-footer .epkb-article-navigation-container a{background-color:#f7f7f7;color:#1e73be;}#eckb-article-content-footer .epkb-article-navigation-container a:hover{background-color:#dee3e5;color:#6d6d6d;}</style>   
+                  </div> 			</div>
+                     </div>
+                  </div><!-- #content -->
+               </p>
+            <a href="#home">Torna alla Home</a>
+         </div>
+      </div>                  
+      <div id="pagina3" class="page">
+         <div class="row">
+            <article id="eckb-article-content" data-article-id="351" >                        <div id="eckb-article-content-header-v2"><div id="eckb-article-content-header-row-1"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-back-navigation-container"><div class="eckb-navigation-back  "  style="margin-top: 4px; margin-right: 15px; margin-bottom: 4px; margin-left: 4px;" ><div tabindex="0" class="eckb-navigation-button"  style="padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; color: #037ba3; background-color: #ffffff; font-size:14px;border-radius: 3px; border-style: solid; border-width: 1px; border-color: #b5b5b5;"  onclick="history.go(-1);" >&lt; Home</div></div></div><div id="eckb-article-content-breadcrumb-container">
+               <div class="eckb-breadcrumb"  style="padding-top: 0px; padding-right: 4px; padding-bottom: 0px; padding-left: 4px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size:14px;" >		<nav class="eckb-breadcrumb-outline" aria-label="Breadcrumb">
+                     <ul class="eckb-breadcrumb-nav">       <li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/documentazione/"><span  style="color: #037ba3;"  >Main</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/"><span  style="color: #037ba3;"  >Programmazione</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><a tabindex="0" href="https://cipiaceinfo.it/docs/category/programmazione/strumenti-web/"><span  style="color: #037ba3;"  >Strumenti web</span></a><span class="eckb-breadcrumb-link-icon ep_font_icon_arrow_carrot_right" aria-hidden="true"></span>	</span></li><li  style="font-size:14px;" >	<span class="eckb-breadcrumb-link"><span aria-current="page" style="color: #037ba3;"  >Cache remota</span>	</span></li>		</ul>
+                  </nav>
+               
+               </div>          </div></div><div class="eckb-article-content-header-row-right-group"><div id="eckb-article-content-toolbar-container">
+                     <div class="eckb-article-content-toolbar-button-container">
+                        <span class="eckb-print-button-container">			<span class="eckb-toolbar-button-text">Stampa</span><span class="eckb-toolbar-button-icon epkbfa epkbfa-print"></span>			</span>
+                     </div> </div></div></div><div id="eckb-article-content-header-row-2"><div class="eckb-article-content-header-row-left-group"><div id="eckb-article-content-title-container"><h1 class="eckb-article-title">Cache remota</h1></div></div></div></div><div id="eckb-article-content-body"><p>Abbiamo visto che il web storage &egrave; una specie di cache locale dove memorizzare localmente, in modo permanente, dati ed informazioni delle applicazioni. Il vantaggio di questa soluzione &egrave; che &egrave; possibile salvare in modo permanente informazioni che si mantengono al ricaricamento della pagina. Tuttavia il limite che rimane &egrave; quello di non avere informazioni permanenti accessibili da qualsiasi browser, ovvero quel che manca &egrave; un servizio di cache globale.</p>
+               
+               
+               
+               <p>La cache remota &egrave; un servizio messo a disposizione da questo sito per i miei studenti per poter salvare su un server remoto degli oggetti JSON associandoli ad una chiave, e poi richiamarli  successivamente, da qualsiasi browser e qualsiasi client.</p>
+               
+               
+               
+               <p>Questo sistema permette quindi di scrivere applicazioni per il web dove possiamo salvare dati ed elaborazioni e riutilizzarli in una sessione successiva, ad esempio per memorizzare i TODO di un utente, oppure memorizzare lo stato di un gioco, o infine salvare informazioni inserite dall&rsquo;utente<sup data-fn="1286db9f-8334-4594-9fa5-0c6ee1893373" class="fn"><a href="#1286db9f-8334-4594-9fa5-0c6ee1893373" id="1286db9f-8334-4594-9fa5-0c6ee1893373-link">1</a></sup>. Per attivare la cache remota occorre registrarsi ed ottenere il token di accesso via mail cliccando a questo indirizzo:&nbsp;<a href="http://ws.cipiaceinfo.it/register/"><span class="glossaryLink"  aria-describedby="tt"  data-cmtooltip="&lt;div class=glossaryItemTitle&gt;HTTP&lt;/div&gt;&lt;div class=glossaryItemBody&gt;&amp;lt;!-- wp:paragraph --&amp;gt;Protocollo di livello applicazione che si basa su una architettura client-server dove il client invia richieste al server, ed il server restituisce risposte. E&amp;#039; la tecnologia principale del Web, usato dai browser, dalle applicazioni desktop e mobili, e costituisce una delle principali tecnologie di Internet.&amp;lt;br/&amp;gt;&amp;lt;!-- /wp:paragraph --&amp;gt;&lt;/div&gt;"  data-gt-translate-attributes='[{"attribute":"data-cmtooltip", "format":"html"}]'  tabindex='0' role='link'>http</span>://ws.cipiaceinfo.it/register/</a></p>
+               
+               
+               
+               <p>La cache remota consiste come il local storage in un servizio remoto dove si memorizzano coppie chiave (stringa) &ndash; valore (stringa). E&rsquo; composta da due servizi, uno per scrivere o modificare una chiave (<strong>SET</strong>) ed uno per leggere il dato avendo la chiave (<strong>GET</strong>). </p>
+               
+               
+               
+               <p>La struttura delle due chiamate &egrave; riassunta nella seguente tabella:</p>
+               
+               
+               
+               <h3 class="wp-block-heading">SET</h3>
+               
+               
+               
+               <p><code><strong>url</strong>:&nbsp;https://ws.cipiaceinfo.it/cache/set<br>method:  &quot;POST&quot;<br><strong>headers</strong>:&nbsp;<br>  &quot;content-type&quot;: &quot;application/json&quot;,&nbsp; <br>  &quot;key&quot;: &quot;MIOTOKEN&quot;<br><strong>body</strong>:&nbsp; {<br>  &quot;key&quot;: &quot;chiave&quot;,&nbsp; <br>  &quot;value&quot;: &quot;valore&quot;&nbsp;<br>}</code></p>
+               
+               
+               
+               <h3 class="wp-block-heading">GET</h3>
+               
+               
+               
+               <p><code><strong>url</strong>:&nbsp;https://ws.cipiaceinfo.it/cache/get<br>method:  &quot;POST&quot;<br><strong>headers</strong>:&nbsp;<br>  &quot;content-type&quot;: &quot;application/json&quot;,&nbsp; <br>  &quot;key&quot;: &quot;MIOTOKEN&quot;<br><strong>body</strong>:&nbsp; {<br>  &quot;key&quot;: &quot;chiave&quot;<br>}</code></p>
+               
+               
+               
+               <p>Vediamo un esempio di funzionamento. Ipotizziamo che si debba salvare un oggetto myObject con la chiave myKey. Il codice da eseguire per eseguire la SET sar&agrave; questo:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>const myObject = { 
+                 firstName: &quot;Mario&quot;, 
+                 lastName: &quot;Rossi&quot; 
+               }; // oggetto da salvare
+               const jsonObject = JSON.stringify(myObject); // JSON da oggetto
+               
+               const myToken = &quot;XXXXXXXXXXXXXXXX&quot;; // token ottenuto via mail&nbsp;
+               const myKey = &quot;person&quot;; // chiave dell'oggetto
+               
+               fetch(&quot;<span class="glossaryLink"  aria-describedby="tt"  data-cmtooltip="&lt;div class=glossaryItemTitle&gt;HTTP&lt;/div&gt;&lt;div class=glossaryItemBody&gt;&amp;lt;!-- wp:paragraph --&amp;gt;Protocollo di livello applicazione che si basa su una architettura client-server dove il client invia richieste al server, ed il server restituisce risposte. E&amp;#039; la tecnologia principale del Web, usato dai browser, dalle applicazioni desktop e mobili, e costituisce una delle principali tecnologie di Internet.&amp;lt;br/&amp;gt;&amp;lt;!-- /wp:paragraph --&amp;gt;&lt;/div&gt;"  data-gt-translate-attributes='[{"attribute":"data-cmtooltip", "format":"html"}]'  tabindex='0' role='link'>http</span>://ws.cipiaceinfo.it/cache/set&quot;, {&nbsp;
+               &nbsp;&nbsp;&nbsp;method: &quot;POST&quot;,
+               &nbsp;&nbsp;&nbsp;headers: {
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content-type&quot;: &quot;application/json&quot;,
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: myToken
+               &nbsp;&nbsp;&nbsp;},
+               &nbsp;&nbsp;&nbsp;body: JSON.stringify({
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: myKey,
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: jsonObject
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+               })
+               .then(r =&gt; r.json())
+               .then(r =&gt; {
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(r.result); // se tutto &egrave; ok, stamper&agrave; &quot;ok&quot;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})</code></pre></div>
+               
+               
+               
+               <p>Per leggere (operazione GET) invece il codice sar&agrave; questo:</p>
+               
+               
+               
+               <div class="hcb_wrap"><pre class="prism line-numbers lang-js" data-lang="JavaScript"><code>let myObject;
+               const myToken = &quot;XXXXXXXXXXXXXXXX&quot;; // token ottenuto via mail&nbsp;
+               const myKey = &quot;person&quot;; // chiave dell'oggetto
+               
+               fetch(&quot;<span class="glossaryLink"  aria-describedby="tt"  data-cmtooltip="&lt;div class=glossaryItemTitle&gt;HTTP&lt;/div&gt;&lt;div class=glossaryItemBody&gt;&amp;lt;!-- wp:paragraph --&amp;gt;Protocollo di livello applicazione che si basa su una architettura client-server dove il client invia richieste al server, ed il server restituisce risposte. E&amp;#039; la tecnologia principale del Web, usato dai browser, dalle applicazioni desktop e mobili, e costituisce una delle principali tecnologie di Internet.&amp;lt;br/&amp;gt;&amp;lt;!-- /wp:paragraph --&amp;gt;&lt;/div&gt;"  data-gt-translate-attributes='[{"attribute":"data-cmtooltip", "format":"html"}]'  tabindex='0' role='link'>http</span>://ws.cipiaceinfo.it/cache/get&quot;, {&nbsp;
+               &nbsp;&nbsp;&nbsp;method: &quot;POST&quot;,
+               &nbsp;&nbsp;&nbsp;headers: {
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content-type&quot;: &quot;application/json&quot;,
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: myToken
+               &nbsp;&nbsp;&nbsp;},
+               &nbsp;&nbsp;&nbsp;body: JSON.stringify({
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: myKey,
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+               })
+               .then(r =&gt; r.json())
+               .then(r =&gt; {
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myObject = JSON.parse(r.result); // r.result conterr&agrave; l'oggetto richiesto
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})</code></pre></div>
+               
+               
+               
+               <p></p>
+               
+               
+               <ol class="wp-block-footnotes"><li id="1286db9f-8334-4594-9fa5-0c6ee1893373">L&rsquo;accesso a questo servizio non &egrave; pubblico, ma avviene mediante registrazione ad utenti autorizzati. Per richiedere l&rsquo;autorizzazione contattatemi.  <a href="#1286db9f-8334-4594-9fa5-0c6ee1893373-link" aria-label="Salta al riferimento nella nota a pi&egrave; di pagina 1">&#8617;&#65038;</a></li></ol></div><div id="eckb-article-content-footer">
+                     <div class="epkb-article-navigation-container epkb-article-navigation--next-link-right">            				<div class="epkb-article-navigation__next"><a href="https://cipiaceinfo.it/docs/programmazione/strumenti-web/servizi-di-login-e-registrazione/" rel="next">
+                              <span class="epkb-article-navigation__label">
+                                  Successivo
+                                  <span class="epkb-article-navigation__label__next__icon epkbfa epkbfa-caret-right"></span>
+                                   </span>
+                              <span title="Servizi di Login e Registrazione" class="epkb-article-navigation-article__title">
+                                 Servizi di Login e Registrazione
+                                 <span class="epkb-article-navigation__next__icon epkbfa ep_font_icon_document"></span>
+                              </span>
+                           </a>
+                                       </div>  
+                     </div>        </div>
+                             </article><!-- /#eckb-article-content -->     <div id="eckb-article-right-sidebar"></div>
+                        </div><!-- /#eckb-article-body -->              <div id="eckb-article-footer"></div>
+                     </div><!-- /#eckb-article-page-container-v2 -->
+               
+                     <style id="eckb-article-styles" type="text/css"> #eckb-article-body .eckb-article-toc ul a.active{background-color:#000000;color:#ffffff;}#eckb-article-body .eckb-article-toc ul a:hover{background-color:#e1ecf7;color:#000000;}#eckb-article-body .eckb-article-toc__inner{border-color:#2b98e5;font-size:14px !important;background-color:#fcfcfc;}#eckb-article-body .eckb-article-toc__inner a{color:#000000;font-size:14px !important;}#eckb-article-body .eckb-article-toc__title{color:#2b98e5;font-size:15px !important;}@media only screen and (min-width:768px){#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-1,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-2,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-3,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-4,#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 #eckb-article-content-header-row-5{flex-direction:row;}}#eckb-article-content-header-row-1{margin-bottom:8px;}#eckb-article-content-header-row-1 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-1 .eckb-article-content-header-row-right-group{align-items:center;}.eckb-article-content-toolbar-button-container{background-color:#fefefe;padding:10px 10px 10px 10px;margin:0px 0px 0px 0px;border-radius:0px;border-width:0px;border-color:#ffffff;border-style:solid;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-text{color:#000000;font-size:15px;}.eckb-article-content-toolbar-button-container .eckb-toolbar-button-icon{color:#000000;font-size:20px;}.eckb-article-content-toolbar-button-container:hover{background-color:#ffffff;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-text{color:#000000;}.eckb-article-content-toolbar-button-container:hover .eckb-toolbar-button-icon{color:#000000;}#eckb-article-content-header-row-2{margin-bottom:15px;}#eckb-article-content-header-row-2 .eckb-article-content-header-row-left-group,#eckb-article-content-header-row-2 .eckb-article-content-header-row-right-group{align-items:flex-end;}#eckb-article-content-footer .epkb-article-navigation-container a{background-color:#f7f7f7;color:#1e73be;}#eckb-article-content-footer .epkb-article-navigation-container a:hover{background-color:#dee3e5;color:#6d6d6d;}</style>   
+                  </div> 			</div>
+                     </div>
+                  </div><!-- #content -->
+               
+         </div>         
+      </div>
+   </div>
+      
+
+   <script type="module" src="./index.js"></script>
+</body>
+
+</html>
